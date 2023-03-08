@@ -1,4 +1,65 @@
 package main.java.org.example.court.domain.decision;
 
-public class Decision {
+import main.java.org.example.court.domain.commonValues.CreateDate;
+import main.java.org.example.court.domain.commonValues.Name;
+import main.java.org.example.court.domain.commonValues.Title;
+import main.java.org.example.court.domain.commonValues.Type;
+import main.java.org.example.court.domain.decision.events.*;
+import main.java.org.example.court.domain.decision.values.CategoryID;
+import main.java.org.example.court.domain.decision.values.DecisionID;
+import main.java.org.example.court.domain.decision.values.JudgeID;
+import main.java.org.example.court.generic.AggregateRoot;
+import main.java.org.example.court.generic.DomainEvent;
+
+import java.util.List;
+
+public class Decision extends AggregateRoot<DecisionID> {
+
+    protected CreateDate createDate;
+
+    protected Title title;
+
+    protected Category category;
+
+    protected Judge judge;
+
+    public Decision(DecisionID decisionID, Title title) {
+        super(decisionID);
+        subscribe(new DecisionChange(this));
+        appendChange(new DecisionCreated(title.value())).apply();
+    }
+
+    public Decision(DecisionID decisionID) {
+        super(decisionID);
+        subscribe(new DecisionChange(this));
+    }
+
+    public static Decision from(DecisionID decisionID, List<DomainEvent> events){
+        Decision decision = new Decision(decisionID);
+        events.forEach(event -> decision.applyEvent(event));
+        return decision;
+    }
+
+    public void changeTitle(Title newTitle){
+        appendChange(new TitleChanged(newTitle.value())).apply();
+    }
+
+    public void createCategory(CategoryID categoryID, Type type){
+        appendChange(new CategoryCreated(categoryID.value(), type.value())).apply();
+    }
+
+    public void changeTypeFromCategory(CategoryID categoryID, Type newType){
+        appendChange(new TypeChangedFromCategory(categoryID.value(), newType.value())).apply();
+    }
+
+    public void createJudge(JudgeID judgeID, Name name){
+        appendChange(new JudgeCreated(judgeID.value(), name.value())).apply();
+    }
+
+    public void changeNameFromJudge(JudgeID judgeID, Name newName){
+        appendChange(new NameChangedFromJudge(judgeID.value(), newName.value())).apply();
+    }
+
+
+
 }
