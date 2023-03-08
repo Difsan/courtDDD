@@ -1,4 +1,4 @@
-package main.java.org.example.court.domain.decision.values;
+package main.java.org.example.court.domain.cases.values;
 
 
 import main.java.org.example.court.generic.Identity;

@@ -1,4 +1,4 @@
-package main.java.org.example.court.domain.action.values;
+package main.java.org.example.court.domain.commonValues;
 
 import main.java.org.example.court.generic.ValueObject;
 
