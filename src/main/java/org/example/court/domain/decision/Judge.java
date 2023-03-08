@@ -1,8 +1,6 @@
 package main.java.org.example.court.domain.decision;
 
 import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Type;
-import main.java.org.example.court.domain.decision.values.CategoryID;
 import main.java.org.example.court.domain.decision.values.JudgeID;
 import main.java.org.example.court.generic.Entity;
 

@@ -45,7 +45,7 @@ public class Decision extends AggregateRoot<DecisionID> {
     }
 
     public void createCategory(CategoryID categoryID, Type type){
-        appendChange(new CategoryCreated(categoryID.value(), type.value())).apply();
+        appendChange(new CategoryAssigned(categoryID.value(), type.value())).apply();
     }
 
     public void changeTypeFromCategory(CategoryID categoryID, Type newType){
@@ -53,7 +53,7 @@ public class Decision extends AggregateRoot<DecisionID> {
     }
 
     public void createJudge(JudgeID judgeID, Name name){
-        appendChange(new JudgeCreated(judgeID.value(), name.value())).apply();
+        appendChange(new JudgeAssigned(judgeID.value(), name.value())).apply();
     }
 
     public void changeNameFromJudge(JudgeID judgeID, Name newName){
