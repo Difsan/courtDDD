@@ -13,7 +13,7 @@ public class ActionChange extends EventChange {
 
     public ActionChange(Action action){
         apply((ActionPresented event) ->{
-            action.createDate = new CreateDate(event.getCreateDate());
+            action.createDate = new CreateDate();
             action.title = new Title(event.getTitle());
         });
         apply((TitleChanged event) -> action.title = new Title(event.getNewTitle()));

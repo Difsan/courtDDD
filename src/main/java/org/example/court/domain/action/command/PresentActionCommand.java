@@ -7,12 +7,10 @@ import java.time.LocalDate;
 public class PresentActionCommand extends Command {
 
     private String actionID;
-    private LocalDate createDate;
     private String title;
 
-    public PresentActionCommand(String actionID, LocalDate createDate, String title) {
+    public PresentActionCommand(String actionID, String title) {
         this.actionID = actionID;
-        this.createDate = createDate;
         this.title = title;
     }
 
@@ -22,14 +20,6 @@ public class PresentActionCommand extends Command {
 
     public void setActionID(String actionID) {
         this.actionID = actionID;
-    }
-
-    public LocalDate getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDate createDate) {
-        this.createDate = createDate;
     }
 
     public String getTitle() {

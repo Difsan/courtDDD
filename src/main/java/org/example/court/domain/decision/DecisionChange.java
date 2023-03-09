@@ -16,22 +16,12 @@ public class DecisionChange extends EventChange {
             decision.createDate = new CreateDate();
             decision.title = new Title(event.getTitle());
         });
-        apply((TitleChanged event) ->{
-            decision.title = new Title(event.getNewTitle());
-        });
-        apply((CategoryAssigned event)->{
-            decision.category = new Category(CategoryID.of(event.getCategoryID()),
-                    new Type(event.getType()));
-        });
-        apply((TypeChangedFromCategory event) -> {
-            decision.category.changeType(new Type(event.getNewType()));
-        });
-        apply((JudgeAssigned event)->{
-            decision.judge = new Judge(JudgeID.of(event.getJudgeID()),
-                    new Name(event.getName()));
-        });
-        apply((NameChangedFromJudge event)->{
-            decision.judge.changeName(new Name(event.getNewName()));
-        });
+        apply((TitleChanged event) -> decision.title = new Title(event.getNewTitle()));
+        apply((CategoryAssigned event)-> decision.category = new Category(CategoryID.of(event.getCategoryID()),
+                new Type(event.getType())));
+        apply((TypeChangedFromCategory event) -> decision.category.changeType(new Type(event.getNewType())));
+        apply((JudgeAssigned event)-> decision.judge = new Judge(JudgeID.of(event.getJudgeID()),
+                new Name(event.getName())));
+        apply((NameChangedFromJudge event)-> decision.judge.changeName(new Name(event.getNewName())));
     }
 }
