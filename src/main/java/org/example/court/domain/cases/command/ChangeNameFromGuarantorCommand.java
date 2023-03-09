@@ -5,14 +5,23 @@ import main.java.org.example.court.generic.DomainEvent;
 
 public class ChangeNameFromGuarantorCommand extends Command {
 
+    private String caseID;
     private String guarantorID;
     private String newName;
 
-    public ChangeNameFromGuarantorCommand(String guarantorID, String newName) {
+    public ChangeNameFromGuarantorCommand(String caseID, String guarantorID, String newName) {
+        this.caseID = caseID;
         this.guarantorID = guarantorID;
         this.newName = newName;
     }
 
+    public String getCaseID() {
+        return caseID;
+    }
+
+    public void setCaseID(String caseID) {
+        this.caseID = caseID;
+    }
     public String getGuarantorID() {
         return guarantorID;
     }

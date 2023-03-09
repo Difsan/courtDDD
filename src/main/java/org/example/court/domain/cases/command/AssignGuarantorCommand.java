@@ -1,16 +1,15 @@
 package main.java.org.example.court.domain.cases.command;
 
 import main.java.org.example.court.generic.Command;
-import main.java.org.example.court.generic.DomainEvent;
 
-public class AssigneGuarantorCommand extends Command {
+public class AssignGuarantorCommand extends Command {
 
     private String caseID;
     private String guarantorID;
     private String name;
     private String nit;
 
-    public AssigneGuarantorCommand(String caseID, String guarantorID, String name, String nit) {
+    public AssignGuarantorCommand(String caseID, String guarantorID, String name, String nit) {
         this.caseID = caseID;
         this.guarantorID = guarantorID;
         this.name = name;
