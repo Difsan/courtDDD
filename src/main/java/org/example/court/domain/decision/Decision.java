@@ -40,6 +40,9 @@ public class Decision extends AggregateRoot<DecisionID> {
     public void changeTitle(Title newTitle){
         appendChange(new TitleChanged(newTitle.value())).apply();
     }
+    public void changePages(Pages newPages){
+        appendChange(new PagesChanged(newPages.value())).apply();
+    }
 
     public void createCategory(CategoryID categoryID, Type type){
         appendChange(new CategoryAssigned(categoryID.value(), type.value())).apply();

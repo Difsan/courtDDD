@@ -15,6 +15,7 @@ public class DecisionChange extends EventChange {
             decision.pages = new Pages(event.getPages());
         });
         apply((TitleChanged event) -> decision.title = new Title(event.getNewTitle()));
+        apply((PagesChanged event)-> decision.pages = new Pages(event.getNewPages()));
         apply((CategoryAssigned event)-> decision.category = new Category(CategoryID.of(event.getCategoryID()),
                 new Type(event.getType())));
         apply((TypeChangedFromCategory event) -> decision.category.changeType(new Type(event.getNewType())));
