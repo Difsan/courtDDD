@@ -1,17 +1,18 @@
 package main.java.org.example.court.domain.commonValues;
 
 import main.java.org.example.court.generic.ValueObject;
+import org.springframework.util.StringUtils;
 
 import java.util.Objects;
 
-public class Nit implements ValueObject<String> {
+public class Phone implements ValueObject<String> {
     private final String value;
 
-    public Nit(String value) {
+    public Phone(String value) {
         this.value = Objects.requireNonNull(value);
         if (this.value.isEmpty()|| this.value.length()!=10 ||
-                !this.value.matches("[0-9]+")){
-            throw new IllegalArgumentException("Nit is not valid");}
+        !this.value.startsWith("3")|| !this.value.matches("[0-9]+")){
+            throw new IllegalArgumentException("Phone is not valid");}
     }
 
     @Override

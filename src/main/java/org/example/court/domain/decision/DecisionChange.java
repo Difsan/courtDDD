@@ -1,9 +1,6 @@
 package main.java.org.example.court.domain.decision;
 
-import main.java.org.example.court.domain.commonValues.CreateDate;
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Title;
-import main.java.org.example.court.domain.commonValues.Type;
+import main.java.org.example.court.domain.commonValues.*;
 import main.java.org.example.court.domain.decision.events.*;
 import main.java.org.example.court.domain.decision.values.CategoryID;
 import main.java.org.example.court.domain.decision.values.JudgeID;
@@ -15,6 +12,7 @@ public class DecisionChange extends EventChange {
         apply((DecisionCreated event) ->{
             decision.createDate = new CreateDate();
             decision.title = new Title(event.getTitle());
+            decision.pages = new Pages(event.getPages());
         });
         apply((TitleChanged event) -> decision.title = new Title(event.getNewTitle()));
         apply((CategoryAssigned event)-> decision.category = new Category(CategoryID.of(event.getCategoryID()),

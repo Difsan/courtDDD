@@ -1,9 +1,6 @@
 package main.java.org.example.court.domain.decision;
 
-import main.java.org.example.court.domain.commonValues.CreateDate;
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Title;
-import main.java.org.example.court.domain.commonValues.Type;
+import main.java.org.example.court.domain.commonValues.*;
 import main.java.org.example.court.domain.decision.events.*;
 import main.java.org.example.court.domain.decision.values.CategoryID;
 import main.java.org.example.court.domain.decision.values.DecisionID;
@@ -11,22 +8,22 @@ import main.java.org.example.court.domain.decision.values.JudgeID;
 import main.java.org.example.court.generic.AggregateRoot;
 import main.java.org.example.court.generic.DomainEvent;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class Decision extends AggregateRoot<DecisionID> {
 
     protected CreateDate createDate;
     protected Title title;
-
+    protected Pages pages;
     protected Category category;
 
     protected Judge judge;
 
-    public Decision(DecisionID decisionID, Title title) {
+
+    public Decision(DecisionID decisionID, Title title, Pages pages) {
         super(decisionID);
         subscribe(new DecisionChange(this));
-        appendChange(new DecisionCreated(title.value())).apply();
+        appendChange(new DecisionCreated(title.value(), pages.value())).apply();
     }
 
     private Decision(DecisionID decisionID) {
