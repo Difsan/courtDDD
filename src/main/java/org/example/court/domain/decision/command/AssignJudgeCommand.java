@@ -2,13 +2,13 @@ package main.java.org.example.court.domain.decision.command;
 
 import main.java.org.example.court.generic.Command;
 
-public class AssingJudgeCommand extends Command {
+public class AssignJudgeCommand extends Command {
 
     private String decisionID;
     private String judgeID;
     private String name;
 
-    public AssingJudgeCommand(String decisionID, String judgeID, String name) {
+    public AssignJudgeCommand(String decisionID, String judgeID, String name) {
         this.decisionID = decisionID;
         this.judgeID = judgeID;
         this.name = name;

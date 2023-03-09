@@ -6,12 +6,12 @@ public class ChangeNameFromPartCommand extends Command {
 
     private String actionID;
     private String partID;
-    private String name;
+    private String newName;
 
-    public ChangeNameFromPartCommand(String actionID, String partID, String name) {
+    public ChangeNameFromPartCommand(String actionID, String partID, String newName) {
         this.actionID = actionID;
         this.partID = partID;
-        this.name = name;
+        this.newName = newName;
     }
 
     public String getActionID() {
@@ -30,11 +30,11 @@ public class ChangeNameFromPartCommand extends Command {
         this.partID = partID;
     }
 
-    public String getName() {
-        return name;
+    public String getNewName() {
+        return newName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNewName(String newName) {
+        this.newName = newName;
     }
 }

@@ -1,30 +1,33 @@
-package main.java.org.example.court.business.cases;
+package main.java.org.example.court.business.usecases.cases;
 
 import main.java.org.example.court.business.commons.EventsRepository;
 import main.java.org.example.court.business.commons.UseCaseForEvent;
 import main.java.org.example.court.domain.action.values.ActionID;
 import main.java.org.example.court.domain.cases.Caso;
 import main.java.org.example.court.domain.cases.events.ActionIDAdded;
+import main.java.org.example.court.domain.cases.events.DecisionIDAdded;
 import main.java.org.example.court.domain.cases.values.CaseID;
 import main.java.org.example.court.domain.cases.values.FileID;
+import main.java.org.example.court.domain.decision.values.DecisionID;
 import main.java.org.example.court.generic.DomainEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-public class ActionIDAddedUseCase implements UseCaseForEvent<ActionIDAdded> {
+@Component
+public class DecisionIDAddedUseCase implements UseCaseForEvent<DecisionIDAdded> {
     private EventsRepository repository;
 
-    public ActionIDAddedUseCase(EventsRepository repository) {
+    public DecisionIDAddedUseCase(EventsRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public List<DomainEvent> apply(ActionIDAdded domainEvent) {
+    public List<DomainEvent> apply(DecisionIDAdded domainEvent) {
         List<DomainEvent> fileEvents = repository.findByAggregatedRootId(domainEvent.getCaseID());
         Caso caso = Caso.from(CaseID.of(domainEvent.getCaseID()), fileEvents);
-        caso.addActionIdToFile(CaseID.of(domainEvent.getCaseID()),
-                FileID.of(domainEvent.getFileID()), ActionID.of(domainEvent.getActionID()));
+        caso.addDecisionIdToFile(CaseID.of(domainEvent.getCaseID()),
+                FileID.of(domainEvent.getFileID()), DecisionID.of(domainEvent.getDecisionID()));
         return caso.getUncommittedChanges().stream().map(event->repository.saveEvent(event)).collect(Collectors.toList());
     }
 }

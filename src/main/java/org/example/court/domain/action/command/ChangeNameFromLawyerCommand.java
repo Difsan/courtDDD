@@ -7,13 +7,13 @@ public class ChangeNameFromLawyerCommand extends Command {
     private String actionID;
     private String partID;
     private String lawyerID;
-    private String name;
+    private String newName;
 
-    public ChangeNameFromLawyerCommand(String actionID, String partID, String lawyerID, String name) {
+    public ChangeNameFromLawyerCommand(String actionID, String partID, String lawyerID, String newName) {
         this.actionID = actionID;
         this.partID = partID;
         this.lawyerID = lawyerID;
-        this.name = name;
+        this.newName = newName;
     }
 
     public String getActionID() {
@@ -40,12 +40,12 @@ public class ChangeNameFromLawyerCommand extends Command {
         this.lawyerID = lawyerID;
     }
 
-    public String getName() {
-        return name;
+    public String getNewName() {
+        return newName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNewName(String newName) {
+        this.newName = newName;
     }
 
 }
