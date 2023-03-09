@@ -23,7 +23,7 @@ public class Action extends AggregateRoot<ActionID> {
         subscribe(new ActionChange(this));
         appendChange(new ActionPresented(title.value())).apply();
     }
-    public Action(ActionID actionID) {
+    private Action(ActionID actionID) {
         super(actionID);
         subscribe(new ActionChange(this));
     }

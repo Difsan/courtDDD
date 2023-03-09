@@ -5,7 +5,7 @@ import main.java.org.example.court.generic.Identity;
 
 public class JudgeID extends Identity {
 
-        public JudgeID(String judgeID) {
+        private JudgeID(String judgeID) {
             super(judgeID);
         }
 

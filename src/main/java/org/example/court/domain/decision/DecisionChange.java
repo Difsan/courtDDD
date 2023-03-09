@@ -13,7 +13,7 @@ public class DecisionChange extends EventChange {
 
     public DecisionChange(Decision decision){
         apply((DecisionCreated event) ->{
-            decision.createDate = new CreateDate(event.getCreateDate());
+            decision.createDate = new CreateDate();
             decision.title = new Title(event.getTitle());
         });
         apply((TitleChanged event) ->{

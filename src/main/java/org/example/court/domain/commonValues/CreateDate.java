@@ -8,8 +8,8 @@ import java.util.Objects;
 public class CreateDate implements ValueObject<LocalDate> {
     private LocalDate value;
 
-    public CreateDate(LocalDate value) {
-        this.value = Objects.requireNonNull(value);
+    public CreateDate() {
+        this.value = LocalDate.now();
     }
 
     @Override

@@ -11,12 +11,12 @@ import main.java.org.example.court.domain.decision.values.JudgeID;
 import main.java.org.example.court.generic.AggregateRoot;
 import main.java.org.example.court.generic.DomainEvent;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Decision extends AggregateRoot<DecisionID> {
 
     protected CreateDate createDate;
-
     protected Title title;
 
     protected Category category;
@@ -29,7 +29,7 @@ public class Decision extends AggregateRoot<DecisionID> {
         appendChange(new DecisionCreated(title.value())).apply();
     }
 
-    public Decision(DecisionID decisionID) {
+    private Decision(DecisionID decisionID) {
         super(decisionID);
         subscribe(new DecisionChange(this));
     }

@@ -5,7 +5,7 @@ import main.java.org.example.court.generic.Identity;
 
 public class FileID extends Identity {
 
-        public FileID(String fileID) {
+    private  FileID(String fileID) {
             super(fileID);
         }
 

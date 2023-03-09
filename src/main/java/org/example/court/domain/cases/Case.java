@@ -24,7 +24,7 @@ public class Case extends AggregateRoot<CaseID> {
         subscribe(new CaseChange(this));
         appendChange(new CaseOpened(state.value())).apply();
     }
-    public Case(CaseID caseID) {
+    private Case(CaseID caseID) {
         super(caseID);
         subscribe(new CaseChange(this));
     }
