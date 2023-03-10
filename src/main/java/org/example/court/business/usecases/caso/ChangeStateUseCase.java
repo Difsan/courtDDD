@@ -23,6 +23,8 @@ public class ChangeStateUseCase implements UseCaseForCommand<ChangeStateCommand>
     public List<DomainEvent> apply(ChangeStateCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getCaseID());
         Caso caso = Caso.from(CasoID.of(command.getCaseID()), domainEvents);
+        if (caso.state().value().equals(command.getNewState()))
+            throw new IllegalArgumentException("caso is already in that state");
         caso.changeState(new State(command.getNewState()));
         return caso.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

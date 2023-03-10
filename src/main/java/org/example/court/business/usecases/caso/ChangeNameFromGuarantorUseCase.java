@@ -24,6 +24,9 @@ public class ChangeNameFromGuarantorUseCase implements UseCaseForCommand<ChangeN
     public List<DomainEvent> apply(ChangeNameFromGuarantorCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getCaseID());
         Caso caso = Caso.from(CasoID.of(command.getCaseID()), domainEvents);
+        if (caso.guarantor().name().value().equals(command.getNewName())) {
+            throw new IllegalArgumentException("Guarantor's name is already " + command.getNewName());
+        }
         caso.changeNameOfGuarantor(GuarantorID.of(command.getGuarantorID()), new Name(command.getNewName()));
         return caso.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

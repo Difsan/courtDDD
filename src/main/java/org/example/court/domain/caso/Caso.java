@@ -54,4 +54,8 @@ public class Caso extends AggregateRoot<CasoID> {
     public void changeNameOfGuarantor(GuarantorID guarantorID, Name newName){
         appendChange(new NameChangedFromGuarantor(guarantorID.value(), newName.value())).apply();
     }
+
+    public State state(){return state;}
+    public File file(){return file;}
+    public Guarantor guarantor() {return guarantor;}
 }
