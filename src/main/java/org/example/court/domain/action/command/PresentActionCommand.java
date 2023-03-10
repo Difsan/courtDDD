@@ -9,9 +9,12 @@ public class PresentActionCommand extends Command {
     private String actionID;
     private String title;
 
-    public PresentActionCommand(String actionID, String title) {
+    private Integer pages;
+
+    public PresentActionCommand(String actionID, String title, Integer pages) {
         this.actionID = actionID;
         this.title = title;
+        this.pages = pages;
     }
 
     public String getActionID() {
@@ -28,5 +31,13 @@ public class PresentActionCommand extends Command {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Integer getPages() {
+        return pages;
+    }
+
+    public void setPages(Integer pages) {
+        this.pages = pages;
     }
 }

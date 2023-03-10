@@ -6,6 +6,7 @@ import main.java.org.example.court.domain.action.Action;
 import main.java.org.example.court.domain.action.command.ChangeAddressFromPartCommand;
 import main.java.org.example.court.domain.action.command.ChangeEmailFromPartCommand;
 import main.java.org.example.court.domain.action.values.ActionID;
+import main.java.org.example.court.domain.action.values.Address;
 import main.java.org.example.court.domain.action.values.PartID;
 import main.java.org.example.court.domain.commonValues.Email;
 import main.java.org.example.court.generic.DomainEvent;
@@ -26,7 +27,7 @@ public class ChangeAddressFromPartUseCase implements UseCaseForCommand<ChangeAdd
     public List<DomainEvent> apply(ChangeAddressFromPartCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
-        action.changeEmailPart(PartID.of(command.getPartID()),new Email(command.getNewAddress()));
+        action.changeAddressPart(PartID.of(command.getPartID()), new Address(command.getNewAddress()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
     }

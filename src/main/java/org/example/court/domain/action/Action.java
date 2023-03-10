@@ -12,13 +12,15 @@ import java.util.List;
 public class Action extends AggregateRoot<ActionID> {
 
     protected Title title;
+
+    protected Pages pages;
     protected CreateDate createDate;
     protected Part part;
 
-    public Action(ActionID actionID, Title title) {
+    public Action(ActionID actionID, Title title, Pages pages) {
         super(actionID);
         subscribe(new ActionChange(this));
-        appendChange(new ActionPresented(title.value())).apply();
+        appendChange(new ActionPresented(title.value(), pages.value())).apply();
     }
 
     private Action(ActionID actionID) {
@@ -34,6 +36,10 @@ public class Action extends AggregateRoot<ActionID> {
 
     public void changeTitle(Title newTitle) {
         appendChange(new TitleChanged(newTitle.value())).apply();
+    }
+
+    public void changePages(Pages newPages) {
+        appendChange(new PagesChanged(newPages.value())).apply();
     }
 
     public void assignPart(PartID partID, Type type, Name name, Nit nit,

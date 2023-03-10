@@ -16,9 +16,12 @@ public class ActionChange extends EventChange {
         apply((ActionPresented event) ->{
             action.createDate = new CreateDate();
             action.title = new Title(event.getTitle());
+            action.pages = new Pages(event.getPages());
         });
 
         apply((TitleChanged event) -> action.title = new Title(event.getNewTitle()));
+
+        apply((PagesChanged event) -> action.pages = new Pages(event.getNewPages()));
 
         apply((PartAssigned event)-> action.part = new Part(PartID.of(event.getPartID()),new Type(event.getType()),
                 new Name(event.getName()), new Nit(event.getNit()),new Phone(event.getPhone()),
