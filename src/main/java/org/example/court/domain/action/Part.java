@@ -19,7 +19,7 @@ public class Part extends Entity<PartID> {
     private Lawyer lawyer;
 
     public Part(PartID id, Type type, Name name, Nit nit,
-                Phone phone, Email email, Address address, Lawyer lawyer) {
+                Phone phone, Email email, Address address) {
         super(id);
         this.type = type;
         this.name = name;
@@ -27,7 +27,6 @@ public class Part extends Entity<PartID> {
         this.phone = phone;
         this.email = email;
         this.address = address;
-        this.lawyer = lawyer;
     }
 
     public void changeName(Name name){ this.name = name; }
@@ -46,5 +45,12 @@ public class Part extends Entity<PartID> {
         return name;
     }
     public Nit nit(){ return nit;}
+
+    public Phone phone(){return phone;}
+
+    public Email email(){return email;}
+
+    public Address address(){return address;}
+
     public Lawyer lawyer(){ return lawyer;}
 }

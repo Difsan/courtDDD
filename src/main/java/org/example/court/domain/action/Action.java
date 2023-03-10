@@ -1,10 +1,7 @@
 package main.java.org.example.court.domain.action;
 
 import main.java.org.example.court.domain.action.events.*;
-import main.java.org.example.court.domain.action.values.ActionID;
-import main.java.org.example.court.domain.action.values.LawyerID;
-import main.java.org.example.court.domain.action.values.PartID;
-import main.java.org.example.court.domain.action.values.ProfessionalCard;
+import main.java.org.example.court.domain.action.values.*;
 import main.java.org.example.court.domain.commonValues.*;
 import main.java.org.example.court.domain.decision.events.TitleChanged;
 import main.java.org.example.court.generic.AggregateRoot;
@@ -39,13 +36,20 @@ public class Action extends AggregateRoot<ActionID> {
         appendChange(new TitleChanged(newTitle.value())).apply();
     }
 
-    public void assignPart(PartID partID, Type type, Name name, Nit nit) {
+    public void assignPart(PartID partID, Type type, Name name, Nit nit,
+                           Phone phone, Email email, Address address) {
         appendChange(new PartAssigned(partID.value(), type.value(),
-                name.value(), nit.value())).apply();
+                name.value(), nit.value(), phone.value(), email.value(), address.value())).apply();
     }
 
     public void changeNamePart(PartID partID, Name newName) {
         appendChange(new NameChangedFromPart(partID.value(), newName.value())).apply();
+    }
+    public void changeEmailPart(PartID partID, Email newEmail) {
+        appendChange(new EmailChangedFromPart(partID.value(), newEmail.value())).apply();
+    }
+    public void changeAddressPart(PartID partID, Address address) {
+        appendChange(new AddressChangedFromPart(partID.value(), address.value())).apply();
     }
 
     public void assignLawyer(LawyerID lawyerID, Name name, Nit nit,
