@@ -61,4 +61,8 @@ public class Action extends AggregateRoot<ActionID> {
     public void changePhoneOfLawyer(LawyerID lawyerID, Phone newPhone) {
         appendChange(new PhoneChangedFromLawyer(lawyerID.value(), newPhone.value()));
     }
+
+    public void changeEmailOfLawyer(LawyerID lawyerID, Email newEmail) {
+        appendChange(new EmailChangedFromLawyer(lawyerID.value(), newEmail.value()));
+    }
 }

@@ -17,11 +17,13 @@ public class ActionChange extends EventChange {
             action.title = new Title(event.getTitle());
         });
         apply((TitleChanged event) -> action.title = new Title(event.getNewTitle()));
-        apply((PartAssigned event)-> action.part = new Part(PartID.of(event.getPartID()),new Type(event.getType()),
-                new Name(event.getName()), new Nit(event.getNit())));
+        //apply((PartAssigned event)-> action.part = new Part(PartID.of(event.getPartID()),new Type(event.getType()),
+        //        new Name(event.getName()), new Nit(event.getNit())));
         apply((NameChangedFromPart event)-> action.part.changeName(new Name(event.getNewName())));
         apply((LawyerAssigned event) -> action.part.addLawyer(new Lawyer(LawyerID.of(event.getLawyerID()),new Name(event.getName()),
                 new Nit(event.getNit()), new Phone(event.getPhone()), new Email(event.getEmail()), new ProfessionalCard(event.getProfessionalCard()))));
         apply((NameChangedFromLawyer event)-> action.part.lawyer().changeName(new Name(event.getNewName())));
+        apply((PhoneChangedFromLawyer event) -> action.part.lawyer().changePhone(new Phone(event.getNewPhone())));
+        apply((EmailChangedFromLawyer event) -> action.part.lawyer().changeEmail(new Email(event.getNewEmail())));
     }
 }
