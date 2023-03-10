@@ -7,7 +7,6 @@ import org.example.court.domain.action.values.LawyerID;
 import org.example.court.domain.action.values.PartID;
 import org.example.court.domain.action.values.ProfessionalCard;
 import org.example.court.domain.commonValues.*;
-import org.example.court.domain.decision.events.TitleChanged;
 import org.example.court.generic.EventChange;
 
 public class ActionChange extends EventChange {

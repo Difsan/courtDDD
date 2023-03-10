@@ -3,7 +3,6 @@ package org.example.court.domain.action;
 import org.example.court.domain.action.events.*;
 import org.example.court.domain.action.values.*;
 import org.example.court.domain.commonValues.*;
-import org.example.court.domain.decision.events.TitleChanged;
 import org.example.court.generic.AggregateRoot;
 import org.example.court.generic.DomainEvent;
 
@@ -75,4 +74,10 @@ public class Action extends AggregateRoot<ActionID> {
     public void changeEmailOfLawyer(LawyerID lawyerID, Email newEmail) {
         appendChange(new EmailChangedFromLawyer(lawyerID.value(), newEmail.value()));
     }
+
+    public Title title(){return title;}
+
+    public Pages pages(){return pages;}
+    public CreateDate createDate(){return createDate;}
+    public Part part(){return part;}
 }

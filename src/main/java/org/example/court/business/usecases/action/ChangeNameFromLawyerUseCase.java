@@ -25,6 +25,9 @@ public class ChangeNameFromLawyerUseCase implements UseCaseForCommand<ChangeName
     public List<DomainEvent> apply(ChangeNameFromLawyerCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
+        if(action.part().lawyer().name().value().equals(command.getNewName())) {
+            throw new IllegalArgumentException("Lawyer's name is already " + command.getNewName());
+        }
         action.changeNameOfLawyer(LawyerID.of(command.getLawyerID()),new Name(command.getNewName()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

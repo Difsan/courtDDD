@@ -27,6 +27,9 @@ public class ChangePhoneFromLawyerUseCase implements UseCaseForCommand<ChangePho
     public List<DomainEvent> apply(ChangePhoneFromLawyerCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
+        if(action.part().lawyer().phone().value().equals(command.getNewPhone())) {
+            throw new IllegalArgumentException("Lawyer's phone is already " + command.getNewPhone());
+        }
         action.changePhoneOfLawyer(LawyerID.of(command.getLawyerID()),new Phone(command.getNewPhone()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

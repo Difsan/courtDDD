@@ -15,22 +15,20 @@ public class LawyerAssigned extends DomainEvent {
     private final String email;
     private final String professionalCard;
 
-    public LawyerAssigned(String lawyerID, String professionalCard, String name, String nit, String phone, String email) {
+    public LawyerAssigned(String lawyerID, String name,
+                          String nit, String phone, String email, String professionalCard) {
         super("org.example.court.domain.action.events.LawyerAssignedToPart");
         this.lawyerID = lawyerID;
-        this.professionalCard = professionalCard;
+
         this.name = name;
         this.nit = nit;
         this.phone = phone;
         this.email = email;
+        this.professionalCard = professionalCard;
     }
 
     public String getLawyerID() {
         return lawyerID;
-    }
-
-    public String getProfessionalCard() {
-        return professionalCard;
     }
 
     public String getName() {
@@ -47,5 +45,8 @@ public class LawyerAssigned extends DomainEvent {
 
     public String getEmail() {
         return email;
+    }
+    public String getProfessionalCard() {
+        return professionalCard;
     }
 }

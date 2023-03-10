@@ -27,6 +27,9 @@ public class ChangeEmailFromPartUseCase implements UseCaseForCommand<ChangeEmail
     public List<DomainEvent> apply(ChangeEmailFromPartCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
+        if(action.part().email().value().equals(command.getNewEmail())) {
+            throw new IllegalArgumentException("Part's Email is already " + command.getNewEmail());
+        }
         action.changeEmailPart(PartID.of(command.getPartID()),new Email(command.getNewEmail()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

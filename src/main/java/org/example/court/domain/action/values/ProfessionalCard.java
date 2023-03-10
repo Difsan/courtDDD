@@ -10,7 +10,7 @@ public class ProfessionalCard implements ValueObject<String> {
     public ProfessionalCard(String value) {
         this.value = Objects.requireNonNull(value);
         if (this.value.isEmpty()|| this.value.length()!=8
-        || this.value.matches("[0-9]+")){
+        || !this.value.matches("[0-9]+")){
             throw new IllegalArgumentException("Professional Card is not valid");}
     }
 

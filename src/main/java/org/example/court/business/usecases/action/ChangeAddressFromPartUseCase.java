@@ -27,6 +27,9 @@ public class ChangeAddressFromPartUseCase implements UseCaseForCommand<ChangeAdd
     public List<DomainEvent> apply(ChangeAddressFromPartCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
+        if(action.part().address().value().equals(command.getNewAddress())) {
+            throw new IllegalArgumentException("Part's address is already " + command.getNewAddress());
+        }
         action.changeAddressPart(PartID.of(command.getPartID()), new Address(command.getNewAddress()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

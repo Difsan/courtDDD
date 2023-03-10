@@ -44,6 +44,7 @@ class CreateDecisionUseCaseTest {
 
         List<DomainEvent> domainEventList = createDecisionUseCase.apply(createDecisionCommand);
         DecisionCreated  event = (DecisionCreated) domainEventList.get(0);
+
         Assertions.assertEquals(1, domainEventList.size());
         Assertions.assertEquals(decisionCreated.aggregateRootId(), domainEventList.get(0).aggregateRootId());
         Assertions.assertEquals(decisionCreated.getTitle(), event.getTitle());

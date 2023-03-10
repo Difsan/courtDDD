@@ -27,6 +27,9 @@ public class ChangeEmailFromLawyerUseCase implements UseCaseForCommand<ChangeEma
     public List<DomainEvent> apply(ChangeEmailFromLawyerCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
+        if(action.part().lawyer().email().value().equals(command.getNewEmail())) {
+            throw new IllegalArgumentException("Lawyer's email is already " + command.getNewEmail());
+        }
         action.changeEmailOfLawyer(LawyerID.of(command.getLawyerID()),new Email(command.getNewEmail()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

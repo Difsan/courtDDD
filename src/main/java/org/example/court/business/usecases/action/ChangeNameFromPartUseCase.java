@@ -25,6 +25,9 @@ public class ChangeNameFromPartUseCase implements UseCaseForCommand<ChangeNameFr
     public List<DomainEvent> apply(ChangeNameFromPartCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
+        if(action.part().name().value().equals(command.getNewName())) {
+            throw new IllegalArgumentException("Part's name is already " + command.getNewName());
+        }
         action.changeNamePart(PartID.of(command.getPartID()),new Name(command.getNewName()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
