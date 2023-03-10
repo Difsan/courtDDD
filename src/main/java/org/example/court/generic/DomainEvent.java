@@ -1,4 +1,4 @@
-package main.java.org.example.court.generic;
+package org.example.court.generic;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;

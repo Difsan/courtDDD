@@ -1,15 +1,15 @@
-package main.java.org.example.court.domain.caso;
+package org.example.court.domain.caso;
 
-import main.java.org.example.court.domain.action.values.ActionID;
-import main.java.org.example.court.domain.caso.events.*;
-import main.java.org.example.court.domain.caso.values.FileID;
-import main.java.org.example.court.domain.caso.values.GuarantorID;
-import main.java.org.example.court.domain.caso.values.State;
-import main.java.org.example.court.domain.caso.values.TotalPages;
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Nit;
-import main.java.org.example.court.domain.decision.values.DecisionID;
-import main.java.org.example.court.generic.EventChange;
+import org.example.court.domain.action.values.ActionID;
+import org.example.court.domain.caso.events.*;
+import org.example.court.domain.caso.values.FileID;
+import org.example.court.domain.caso.values.GuarantorID;
+import org.example.court.domain.caso.values.State;
+import org.example.court.domain.caso.values.TotalPages;
+import org.example.court.domain.commonValues.Name;
+import org.example.court.domain.commonValues.Nit;
+import org.example.court.domain.decision.values.DecisionID;
+import org.example.court.generic.EventChange;
 
 public class CasoChange extends EventChange {
     public CasoChange(Caso caso){

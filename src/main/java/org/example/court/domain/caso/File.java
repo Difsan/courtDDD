@@ -1,11 +1,11 @@
-package main.java.org.example.court.domain.caso;
+package org.example.court.domain.caso;
 
-import main.java.org.example.court.domain.action.values.ActionID;
-import main.java.org.example.court.domain.caso.values.FileID;
-import main.java.org.example.court.domain.caso.values.TotalPages;
-import main.java.org.example.court.domain.commonValues.CreateDate;
-import main.java.org.example.court.domain.decision.values.DecisionID;
-import main.java.org.example.court.generic.Entity;
+import org.example.court.domain.action.values.ActionID;
+import org.example.court.domain.caso.values.FileID;
+import org.example.court.domain.caso.values.TotalPages;
+import org.example.court.domain.commonValues.CreateDate;
+import org.example.court.domain.decision.values.DecisionID;
+import org.example.court.generic.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

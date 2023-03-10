@@ -1,8 +1,8 @@
-package main.java.org.example.court.domain.decision;
+package org.example.court.domain.decision;
 
-import main.java.org.example.court.domain.commonValues.Type;
-import main.java.org.example.court.domain.decision.values.CategoryID;
-import main.java.org.example.court.generic.Entity;
+import org.example.court.domain.commonValues.Type;
+import org.example.court.domain.decision.values.CategoryID;
+import org.example.court.generic.Entity;
 
 public class Category extends Entity<CategoryID> {
 

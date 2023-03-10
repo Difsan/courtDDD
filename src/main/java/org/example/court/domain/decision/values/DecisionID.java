@@ -1,7 +1,7 @@
-package main.java.org.example.court.domain.decision.values;
+package org.example.court.domain.decision.values;
 
 
-import main.java.org.example.court.generic.Identity;
+import org.example.court.generic.Identity;
 
 public class DecisionID extends Identity {
 

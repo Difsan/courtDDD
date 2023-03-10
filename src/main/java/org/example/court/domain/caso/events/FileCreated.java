@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.caso.events;
+package org.example.court.domain.caso.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ public class FileCreated extends DomainEvent {
     private final String fileID;
 
     public FileCreated(String fileID) {
-        super("main.java.org.example.court.domain.cases.events.FileCreated");
+        super("org.example.court.domain.cases.events.FileCreated");
         this.createDate = LocalDate.now();
         this.fileID = fileID;
     }

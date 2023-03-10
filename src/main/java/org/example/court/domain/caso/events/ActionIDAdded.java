@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.caso.events;
+package org.example.court.domain.caso.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class ActionIDAdded extends DomainEvent {
 
@@ -9,7 +9,7 @@ public class ActionIDAdded extends DomainEvent {
     private final String actionID;
 
     public ActionIDAdded(String caseID, String fileID, String actionID) {
-        super("main.java.org.example.court.domain.cases.events.ActionIDAdded");
+        super("org.example.court.domain.cases.events.ActionIDAdded");
         this.caseID = caseID;
         this.fileID = fileID;
         this.actionID = actionID;

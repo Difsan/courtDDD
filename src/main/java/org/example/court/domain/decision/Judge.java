@@ -1,8 +1,8 @@
-package main.java.org.example.court.domain.decision;
+package org.example.court.domain.decision;
 
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.decision.values.JudgeID;
-import main.java.org.example.court.generic.Entity;
+import org.example.court.domain.commonValues.Name;
+import org.example.court.domain.decision.values.JudgeID;
+import org.example.court.generic.Entity;
 
 public class Judge extends Entity<JudgeID> {
 

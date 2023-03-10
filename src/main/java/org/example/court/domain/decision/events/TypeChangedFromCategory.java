@@ -1,13 +1,13 @@
-package main.java.org.example.court.domain.decision.events;
+package org.example.court.domain.decision.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class TypeChangedFromCategory extends DomainEvent {
     private final String categoryID;
     private final String newType;
 
     public TypeChangedFromCategory(String categoryID, String newType) {
-        super("main.java.org.example.court.domain.decision.events.TypeChangedFromCategory");
+        super("org.example.court.domain.decision.events.TypeChangedFromCategory");
         this.categoryID = categoryID;
         this.newType = newType;
     }

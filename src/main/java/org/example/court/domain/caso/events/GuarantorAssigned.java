@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.caso.events;
+package org.example.court.domain.caso.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class GuarantorAssigned extends DomainEvent {
 
@@ -9,7 +9,7 @@ public class GuarantorAssigned extends DomainEvent {
     private final String nit;
 
     public GuarantorAssigned(String guarantorID, String name, String nit) {
-        super("main.java.org.example.court.domain.cases.events.GuarantorAssigned");
+        super("org.example.court.domain.cases.events.GuarantorAssigned");
         this.guarantorID = guarantorID;
         this.name = name;
         this.nit = nit;

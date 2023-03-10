@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.caso.events;
+package org.example.court.domain.caso.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class NameChangedFromGuarantor extends DomainEvent {
 
@@ -8,7 +8,7 @@ public class NameChangedFromGuarantor extends DomainEvent {
     private final String newName;
 
     public NameChangedFromGuarantor(String guarantorID, String newName) {
-        super("main.java.org.example.court.domain.cases.events.NameChangedFromGuarantor");
+        super("org.example.court.domain.cases.events.NameChangedFromGuarantor");
         this.guarantorID = guarantorID;
         this.newName = newName;
     }

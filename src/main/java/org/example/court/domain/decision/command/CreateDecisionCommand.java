@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.decision.command;
+package org.example.court.domain.decision.command;
 
-import main.java.org.example.court.generic.Command;
+import org.example.court.generic.Command;
 
 import java.time.LocalDate;
 

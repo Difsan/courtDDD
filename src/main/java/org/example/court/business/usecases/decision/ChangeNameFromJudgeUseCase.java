@@ -1,16 +1,16 @@
-package main.java.org.example.court.business.usecases.decision;
+package org.example.court.business.usecases.decision;
 
-import main.java.org.example.court.business.commons.EventsRepository;
-import main.java.org.example.court.business.commons.UseCaseForCommand;
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Type;
-import main.java.org.example.court.domain.decision.Decision;
-import main.java.org.example.court.domain.decision.command.ChangeNameFromJudgeCommand;
-import main.java.org.example.court.domain.decision.command.ChangeTypeFromCategoryCommand;
-import main.java.org.example.court.domain.decision.values.CategoryID;
-import main.java.org.example.court.domain.decision.values.DecisionID;
-import main.java.org.example.court.domain.decision.values.JudgeID;
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.business.commons.EventsRepository;
+import org.example.court.business.commons.UseCaseForCommand;
+import org.example.court.domain.commonValues.Name;
+import org.example.court.domain.commonValues.Type;
+import org.example.court.domain.decision.Decision;
+import org.example.court.domain.decision.command.ChangeNameFromJudgeCommand;
+import org.example.court.domain.decision.command.ChangeTypeFromCategoryCommand;
+import org.example.court.domain.decision.values.CategoryID;
+import org.example.court.domain.decision.values.DecisionID;
+import org.example.court.domain.decision.values.JudgeID;
+import org.example.court.generic.DomainEvent;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

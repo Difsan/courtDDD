@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.action.values;
+package org.example.court.domain.action.values;
 
-import main.java.org.example.court.generic.ValueObject;
+import org.example.court.generic.ValueObject;
 
 import java.util.Objects;
 

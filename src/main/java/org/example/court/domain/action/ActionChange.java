@@ -1,14 +1,14 @@
-package main.java.org.example.court.domain.action;
+package org.example.court.domain.action;
 
 
-import main.java.org.example.court.domain.action.events.*;
-import main.java.org.example.court.domain.action.values.Address;
-import main.java.org.example.court.domain.action.values.LawyerID;
-import main.java.org.example.court.domain.action.values.PartID;
-import main.java.org.example.court.domain.action.values.ProfessionalCard;
-import main.java.org.example.court.domain.commonValues.*;
-import main.java.org.example.court.domain.decision.events.TitleChanged;
-import main.java.org.example.court.generic.EventChange;
+import org.example.court.domain.action.events.*;
+import org.example.court.domain.action.values.Address;
+import org.example.court.domain.action.values.LawyerID;
+import org.example.court.domain.action.values.PartID;
+import org.example.court.domain.action.values.ProfessionalCard;
+import org.example.court.domain.commonValues.*;
+import org.example.court.domain.decision.events.TitleChanged;
+import org.example.court.generic.EventChange;
 
 public class ActionChange extends EventChange {
 

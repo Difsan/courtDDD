@@ -1,7 +1,7 @@
-package main.java.org.example.court.domain.caso.values;
+package org.example.court.domain.caso.values;
 
 
-import main.java.org.example.court.generic.Identity;
+import org.example.court.generic.Identity;
 
 public class GuarantorID extends Identity {
 

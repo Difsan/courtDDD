@@ -1,12 +1,12 @@
-package main.java.org.example.court.domain.action;
+package org.example.court.domain.action;
 
-import main.java.org.example.court.domain.action.values.LawyerID;
-import main.java.org.example.court.domain.action.values.ProfessionalCard;
-import main.java.org.example.court.domain.commonValues.Email;
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Nit;
-import main.java.org.example.court.domain.commonValues.Phone;
-import main.java.org.example.court.generic.Entity;
+import org.example.court.domain.action.values.LawyerID;
+import org.example.court.domain.action.values.ProfessionalCard;
+import org.example.court.domain.commonValues.Email;
+import org.example.court.domain.commonValues.Name;
+import org.example.court.domain.commonValues.Nit;
+import org.example.court.domain.commonValues.Phone;
+import org.example.court.generic.Entity;
 
 public class Lawyer extends Entity<LawyerID> {
 

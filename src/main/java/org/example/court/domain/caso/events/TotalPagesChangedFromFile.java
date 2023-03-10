@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.caso.events;
+package org.example.court.domain.caso.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class TotalPagesChangedFromFile extends DomainEvent {
 
@@ -8,7 +8,7 @@ public class TotalPagesChangedFromFile extends DomainEvent {
     private final Integer newTotalPages;
 
     public TotalPagesChangedFromFile(String guarantorID, Integer newTotalPages) {
-        super("main.java.org.example.court.domain.caso.events.TotalPagesChangedFromFile");
+        super("org.example.court.domain.caso.events.TotalPagesChangedFromFile");
         this.guarantorID = guarantorID;
         this.newTotalPages = newTotalPages;
     }

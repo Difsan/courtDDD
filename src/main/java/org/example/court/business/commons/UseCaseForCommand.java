@@ -1,7 +1,7 @@
-package main.java.org.example.court.business.commons;
+package org.example.court.business.commons;
 
-import main.java.org.example.court.generic.Command;
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.Command;
+import org.example.court.generic.DomainEvent;
 
 import java.util.List;
 

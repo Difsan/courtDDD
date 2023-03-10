@@ -1,10 +1,10 @@
-package main.java.org.example.court.domain.decision;
+package org.example.court.domain.decision;
 
-import main.java.org.example.court.domain.commonValues.*;
-import main.java.org.example.court.domain.decision.events.*;
-import main.java.org.example.court.domain.decision.values.CategoryID;
-import main.java.org.example.court.domain.decision.values.JudgeID;
-import main.java.org.example.court.generic.EventChange;
+import org.example.court.domain.commonValues.*;
+import org.example.court.domain.decision.events.*;
+import org.example.court.domain.decision.values.CategoryID;
+import org.example.court.domain.decision.values.JudgeID;
+import org.example.court.generic.EventChange;
 
 public class DecisionChange extends EventChange {
 

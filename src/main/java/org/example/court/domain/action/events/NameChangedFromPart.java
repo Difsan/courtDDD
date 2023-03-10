@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.action.events;
+package org.example.court.domain.action.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class NameChangedFromPart extends DomainEvent {
 
@@ -8,7 +8,7 @@ public class NameChangedFromPart extends DomainEvent {
     private final String newName;
 
     public NameChangedFromPart(String partID, String newName) {
-        super("main.java.org.example.court.domain.action.events.NameChangedFromPart");
+        super("org.example.court.domain.action.events.NameChangedFromPart");
         this.partID = partID;
         this.newName = newName;
     }

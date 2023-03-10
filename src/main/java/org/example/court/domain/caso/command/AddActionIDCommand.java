@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.caso.command;
+package org.example.court.domain.caso.command;
 
-import main.java.org.example.court.generic.Command;
+import org.example.court.generic.Command;
 
 public class AddActionIDCommand extends Command {
 

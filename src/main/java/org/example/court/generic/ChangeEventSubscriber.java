@@ -1,4 +1,4 @@
-package main.java.org.example.court.generic;
+package org.example.court.generic;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

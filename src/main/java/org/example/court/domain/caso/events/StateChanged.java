@@ -1,12 +1,12 @@
-package main.java.org.example.court.domain.caso.events;
+package org.example.court.domain.caso.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class StateChanged extends DomainEvent {
     private final String newState;
 
     public StateChanged(String newState) {
-        super("main.java.org.example.court.domain.cases.events.StateChanged");
+        super("org.example.court.domain.cases.events.StateChanged");
         this.newState = newState;
     }
 

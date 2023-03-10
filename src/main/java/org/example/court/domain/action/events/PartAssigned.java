@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.action.events;
+package org.example.court.domain.action.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class PartAssigned extends DomainEvent {
 
@@ -16,7 +16,7 @@ public class PartAssigned extends DomainEvent {
     private final String address;
 
     public PartAssigned(String partID, String type, String name, String nit, String phone, String email, String address) {
-        super("main.java.org.example.court.domain.action.events.PartAssigned");
+        super("org.example.court.domain.action.events.PartAssigned");
         this.partID = partID;
         this.type = type;
         this.name = name;

@@ -1,10 +1,10 @@
-package main.java.org.example.court.domain.action;
+package org.example.court.domain.action;
 
-import main.java.org.example.court.domain.action.values.Address;
-import main.java.org.example.court.domain.action.values.LawyerID;
-import main.java.org.example.court.domain.action.values.PartID;
-import main.java.org.example.court.domain.commonValues.*;
-import main.java.org.example.court.generic.Entity;
+import org.example.court.domain.action.values.Address;
+import org.example.court.domain.action.values.LawyerID;
+import org.example.court.domain.action.values.PartID;
+import org.example.court.domain.commonValues.*;
+import org.example.court.generic.Entity;
 
 public class Part extends Entity<PartID> {
     private Type type;

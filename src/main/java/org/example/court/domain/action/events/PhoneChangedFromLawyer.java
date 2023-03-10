@@ -1,6 +1,6 @@
-package main.java.org.example.court.domain.action.events;
+package org.example.court.domain.action.events;
 
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.generic.DomainEvent;
 
 public class PhoneChangedFromLawyer extends DomainEvent {
 
@@ -8,7 +8,7 @@ public class PhoneChangedFromLawyer extends DomainEvent {
     private final String newPhone;
 
     public PhoneChangedFromLawyer(String lawyerID, String newPhone) {
-        super("main.java.org.example.court.domain.action.events.PhoneChangedFromLawyer");
+        super("org.example.court.domain.action.events.PhoneChangedFromLawyer");
         this.lawyerID = lawyerID;
         this.newPhone = newPhone;
     }

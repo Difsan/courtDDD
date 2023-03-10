@@ -1,13 +1,13 @@
-package main.java.org.example.court.domain.caso;
+package org.example.court.domain.caso;
 
-import main.java.org.example.court.domain.action.values.ActionID;
-import main.java.org.example.court.domain.caso.events.*;
-import main.java.org.example.court.domain.caso.values.*;
-import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Nit;
-import main.java.org.example.court.domain.decision.values.DecisionID;
-import main.java.org.example.court.generic.AggregateRoot;
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.domain.action.values.ActionID;
+import org.example.court.domain.caso.events.*;
+import org.example.court.domain.caso.values.*;
+import org.example.court.domain.commonValues.Name;
+import org.example.court.domain.commonValues.Nit;
+import org.example.court.domain.decision.values.DecisionID;
+import org.example.court.generic.AggregateRoot;
+import org.example.court.generic.DomainEvent;
 
 import java.util.List;
 

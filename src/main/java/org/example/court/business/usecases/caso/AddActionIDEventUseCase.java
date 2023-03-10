@@ -1,22 +1,22 @@
-package main.java.org.example.court.business.usecases.caso;
+package org.example.court.business.usecases.caso;
 
-import main.java.org.example.court.business.commons.EventsRepository;
-import main.java.org.example.court.business.commons.UseCaseForEvent;
-import main.java.org.example.court.domain.action.values.ActionID;
-import main.java.org.example.court.domain.caso.Caso;
-import main.java.org.example.court.domain.caso.events.ActionIDAdded;
-import main.java.org.example.court.domain.caso.values.CasoID;
-import main.java.org.example.court.domain.caso.values.FileID;
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.business.commons.EventsRepository;
+import org.example.court.business.commons.UseCaseForEvent;
+import org.example.court.domain.action.values.ActionID;
+import org.example.court.domain.caso.Caso;
+import org.example.court.domain.caso.events.ActionIDAdded;
+import org.example.court.domain.caso.values.CasoID;
+import org.example.court.domain.caso.values.FileID;
+import org.example.court.generic.DomainEvent;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 @Component
-public class ActionIDAddedUseCase implements UseCaseForEvent<ActionIDAdded> {
+public class AddActionIDEventUseCase implements UseCaseForEvent<ActionIDAdded> {
     private EventsRepository repository;
 
-    public ActionIDAddedUseCase(EventsRepository repository) {
+    public AddActionIDEventUseCase(EventsRepository repository) {
         this.repository = repository;
     }
 

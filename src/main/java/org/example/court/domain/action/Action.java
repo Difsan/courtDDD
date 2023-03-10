@@ -1,11 +1,11 @@
-package main.java.org.example.court.domain.action;
+package org.example.court.domain.action;
 
-import main.java.org.example.court.domain.action.events.*;
-import main.java.org.example.court.domain.action.values.*;
-import main.java.org.example.court.domain.commonValues.*;
-import main.java.org.example.court.domain.decision.events.TitleChanged;
-import main.java.org.example.court.generic.AggregateRoot;
-import main.java.org.example.court.generic.DomainEvent;
+import org.example.court.domain.action.events.*;
+import org.example.court.domain.action.values.*;
+import org.example.court.domain.commonValues.*;
+import org.example.court.domain.decision.events.TitleChanged;
+import org.example.court.generic.AggregateRoot;
+import org.example.court.generic.DomainEvent;
 
 import java.util.List;
 
