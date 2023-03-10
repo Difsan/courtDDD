@@ -9,7 +9,7 @@ public class Email implements ValueObject<String> {
 
     public Email(String value) {
         this.value = Objects.requireNonNull(value);
-        if (this.value.isEmpty()||!this.value.contains("@")){
+        if (this.value.isEmpty()||!this.value.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$")){
             throw new IllegalArgumentException("Email is not valid");}
     }
 

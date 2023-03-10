@@ -39,9 +39,9 @@ class ChangeNameFromGuarantorUseCaseTest {
         guarantorAssigned.setAggregateRootId("casoID");
 
         ChangeNameFromGuarantorCommand changeNameFromGuarantorCommand = new ChangeNameFromGuarantorCommand("casoID",
-                "guarantorID", "Pedro");
+                "guarantorID", "Pablo");
 
-        NameChangedFromGuarantor nameChangedFromGuarantor = new NameChangedFromGuarantor("guarantorID", "Andres");
+        NameChangedFromGuarantor nameChangedFromGuarantor = new NameChangedFromGuarantor("guarantorID", "Pablo");
         nameChangedFromGuarantor.setAggregateRootId("casoID");
 
         Mockito.when(eventsRepository.findByAggregatedRootId("casoID")).thenReturn(List.of(
