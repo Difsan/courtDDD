@@ -27,6 +27,9 @@ public class ChangeTypeFromCategoryUseCase implements UseCaseForCommand<ChangeTy
     public List<DomainEvent> apply(ChangeTypeFromCategoryCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getDecisionID());
         Decision decision = Decision.from(DecisionID.of(command.getDecisionID()), domainEvents);
+        if(decision.category().type().value().equals(command.getNewType())) {
+            throw new IllegalArgumentException("Category's type is already " + command.getNewType());
+        }
         decision.changeTypeFromCategory(CategoryID.of(command.getCategoryID()),new Type(command.getNewType()));
         return decision.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

@@ -28,6 +28,9 @@ public class ChangeNameFromJudgeUseCase implements UseCaseForCommand<ChangeNameF
     public List<DomainEvent> apply(ChangeNameFromJudgeCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getDecisionID());
         Decision decision = Decision.from(DecisionID.of(command.getDecisionID()), domainEvents);
+        if(decision.judge().name().value().equals(command.getNewName())) {
+            throw new IllegalArgumentException("Judge's name is already " + command.getNewName());
+        }
         decision.changeNameFromJudge(JudgeID.of(command.getJudgeID()),new Name(command.getNewName()));
         return decision.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

@@ -27,6 +27,9 @@ public class ChangeTitleUseCase implements UseCaseForCommand<ChangeTitleCommand>
     public List<DomainEvent> apply(ChangeTitleCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getDecisionID());
         Decision decision = Decision.from(DecisionID.of(command.getDecisionID()), domainEvents);
+        if(decision.title().value().equals(command.getNewTitle())) {
+            throw new IllegalArgumentException("Decision title is already " + command.getNewTitle());
+        }
         decision.changeTitle(new Title(command.getNewTitle()));
         return decision.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());

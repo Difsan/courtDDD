@@ -60,6 +60,10 @@ public class Decision extends AggregateRoot<DecisionID> {
         appendChange(new NameChangedFromJudge(judgeID.value(), newName.value())).apply();
     }
 
-
+    public CreateDate createDate(){return createDate;}
+    public Title title(){return title;}
+    public Pages pages(){return pages;}
+    public Category category(){return category;}
+    public Judge judge(){return judge;}
 
 }
