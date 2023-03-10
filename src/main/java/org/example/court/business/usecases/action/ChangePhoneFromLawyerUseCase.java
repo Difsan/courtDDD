@@ -3,13 +3,11 @@ package main.java.org.example.court.business.usecases.action;
 import main.java.org.example.court.business.commons.EventsRepository;
 import main.java.org.example.court.business.commons.UseCaseForCommand;
 import main.java.org.example.court.domain.action.Action;
-import main.java.org.example.court.domain.action.command.AssignLawyerCommand;
+import main.java.org.example.court.domain.action.command.ChangeNameFromLawyerCommand;
+import main.java.org.example.court.domain.action.command.ChangePhoneFromLawyerCommand;
 import main.java.org.example.court.domain.action.values.ActionID;
 import main.java.org.example.court.domain.action.values.LawyerID;
-import main.java.org.example.court.domain.action.values.ProfessionalCard;
-import main.java.org.example.court.domain.commonValues.Email;
 import main.java.org.example.court.domain.commonValues.Name;
-import main.java.org.example.court.domain.commonValues.Nit;
 import main.java.org.example.court.domain.commonValues.Phone;
 import main.java.org.example.court.generic.DomainEvent;
 import org.springframework.stereotype.Component;
@@ -18,24 +16,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class AssignLawyerUseCase implements UseCaseForCommand<AssignLawyerCommand> {
-
+public class ChangePhoneFromLawyerUseCase implements UseCaseForCommand<ChangePhoneFromLawyerCommand> {
     private EventsRepository eventsRepository;
 
-    public AssignLawyerUseCase(EventsRepository eventsRepository) {
+    public ChangePhoneFromLawyerUseCase(EventsRepository eventsRepository) {
         this.eventsRepository = eventsRepository;
     }
 
     @Override
-    public List<DomainEvent> apply(AssignLawyerCommand command) {
+    public List<DomainEvent> apply(ChangePhoneFromLawyerCommand command) {
         List<DomainEvent> domainEvents = eventsRepository.findByAggregatedRootId(command.getActionID());
         Action action = Action.from(ActionID.of(command.getActionID()), domainEvents);
-        action.assignLawyer(LawyerID.of(command.getLawyerID()),
-                new Name(command.getName()),
-                new Nit(command.getNit()),
-                new Phone(command.getPhone()),
-                new Email(command.getEmail()),
-                new ProfessionalCard(command.getProfessionalCard()));
+        action.changePhoneOfLawyer(LawyerID.of(command.getLawyerID()),new Phone(command.getNewPhone()));
         return action.getUncommittedChanges().stream()
                 .map(event->eventsRepository.saveEvent(event)).collect(Collectors.toList());
     }

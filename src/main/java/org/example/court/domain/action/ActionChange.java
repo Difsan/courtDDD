@@ -21,7 +21,7 @@ public class ActionChange extends EventChange {
                 new Name(event.getName()), new Nit(event.getNit())));
         apply((NameChangedFromPart event)-> action.part.changeName(new Name(event.getNewName())));
         apply((LawyerAssigned event) -> action.part.addLawyer(new Lawyer(LawyerID.of(event.getLawyerID()),new Name(event.getName()),
-                new Nit(event.getNit()), new ProfessionalCard(event.getProfessionalCard()))));
+                new Nit(event.getNit()), new Phone(event.getPhone()), new Email(event.getEmail()), new ProfessionalCard(event.getProfessionalCard()))));
         apply((NameChangedFromLawyer event)-> action.part.lawyer().changeName(new Name(event.getNewName())));
     }
 }
